@@ -36,14 +36,14 @@ var name = 3(function () {})()
 
 > 即使语句末尾的分号不是必需的，也应该加上。记着加分号有助于防止省略造成的问题，比如可以避免输入内容不完整。此外，加分号也便于开发者通过删除空行来压缩代码(如果没有结尾的分号，只删除空行，则会导致语法错误)。加分号也有助于在某些情况下提升性能，因为解析器会尝试在合适的位置补上分号以纠正语法错误。
 
-其中 `加分号有助于防止省略造成的问题` 这一点很好理解，而另外两点没有查阅到相关的资料，暂时无法作出相关解释。但是，大部分人认为，加分号与否产生的影响几乎可以忽略不计。
+其中 `加分号有助于防止省略造成的问题`，是指全部代码加分号可以避免因缺少分号而导致错误。目前，C 端的JavaScript 代码几乎都需要经过 Webpack 等工具的压缩，压缩的结果可以选择是否保留分号。
 
 
 ## 代码规范
 
 在不同的代码规范，对分号的限制也不一致。
 
-[Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml) 代码规范中，须要加分号。
+[Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml) 代码规范中，需要加分号。
 
 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 代码规范中，必须要加分号:
 
@@ -79,7 +79,7 @@ Airbnb JavaScript Style Guide 和 JavaScript Standard Style 对于分号的限�
 
 ## 最后总结
 
-虽然个人的开发习惯和风格各不相同，但是需要在项目上保持一致，或者在团队内部达成一致。代码格式化工具和编辑器插件都能自动完成对分号的处理，也会很方便的做到代码风格的统一。
+虽然个人的开发习惯和风格各不相同，但是需要在同一项目上保持一致，或者在团队内部达成一致。代码格式化工具和编辑器插件都能自动完成对分号的处理，也会很方便的做到代码风格的统一。
 
 ## 参考文档
 
