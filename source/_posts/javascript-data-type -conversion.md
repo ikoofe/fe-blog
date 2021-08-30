@@ -391,12 +391,11 @@ null转为数值时为0，而undefined转为数值时为NaN。（特例）
 ```
 
 ```JavaScript
- + - * / %
-++ --
-
-涉及相等 都是number
-> < == !== > < >= <+
-
++ - * / %  ++ --
+// 除了加法运算符（+）有可能把运算子转为字符串，其他运算符都会把运算子自动转成数值。
+ 
+ > <  == !==  >=  <= 
+// 涉及相等 都是number
 [] == ![]
 {} == !{}
 
@@ -409,7 +408,6 @@ null === null // true
 NaN === NaN // false
 NaN == NaN // false
 
-Number()
 1 == true // true
 '1'== true// true
 '1' == 1 // true
@@ -473,3 +471,6 @@ NaN != 0  --->  {} == !{} 等于false
 {} + []
 
 ```
+## 再做做选择题
+
+> 网址:  [jsisweird](https://jsisweird.com/)
