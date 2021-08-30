@@ -209,11 +209,11 @@ Number("[object Array]") // NaN
 
 结论：
 
-1.调用对象自身的valueOf方法。如果返回原始类型的值，则直接对该值使用Number函数，不再进行后续步骤。
+1. 调用对象自身的valueOf方法。如果返回原始类型的值，则直接对该值使用Number函数，不再进行后续步骤。
 
-2.如果valueOf方法返回的还是对象，则改为调用对象自身的toString方法。如果toString方法返回原始类型的值，则对该值使用Number函数，不再进行后续步骤。
+2. 如果valueOf方法返回的还是对象，则改为调用对象自身的toString方法。如果toString方法返回原始类型的值，则对该值使用Number函数，不再进行后续步骤。
 
-3，如果toString方法返回的是对象，就报错。
+3. 如果toString方法返回的是对象，就报错。
 
 ```JavaScript
   // 附：Object.prototype.toString 返回值 
@@ -284,11 +284,11 @@ console.log(String(obj)
 
 **String方法背后的转换规则，与Number方法基本相同，只是互换了valueOf方法和toString方法的执行顺序。**
 
-1.先调用对象自身的toString方法。如果返回原始类型的值，则对该值使用String函数，不再进行以下步骤。
+1. 先调用对象自身的toString方法。如果返回原始类型的值，则对该值使用String函数，不再进行以下步骤。
 
-2.如果toString方法返回的是对象，再调用原对象的valueOf方法。如果valueOf方法返回原始类型的值，则对该值使用String函数，不再进行以下步骤。
+2. 如果toString方法返回的是对象，再调用原对象的valueOf方法。如果valueOf方法返回原始类型的值，则对该值使用String函数，不再进行以下步骤。
 
-3.如果valueOf方法返回的是对象，就报错。
+3. 如果valueOf方法返回的是对象，就报错。
 
 ```JavaScript
 [1,2,3].toString() === Array.prototype.toString.call([1,2,3]) // true
@@ -417,7 +417,7 @@ Number()
 
 ## 3.特殊值
 
-#### 特殊值:Infinity
+### 特殊值:Infinity
 
 ```JavaScript
 Number(Infinity) //Infinity
