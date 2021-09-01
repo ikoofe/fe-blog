@@ -49,7 +49,7 @@ Number(undefined) // NaN
 Number(null) // 0
 ```
 
-Number 函数将字符串转为数值，要比 parseInt 函数严格。基本上，只要有一个字符无法转成数值，整个字符串就会被转为 NaN。parseInt 可以处理字符串截取和数字进制问题：
+`Number()` 将字符串转为数值，要比 `parseInt` 函数严格。基本上，只要有一个字符无法转成数值，整个字符串就会被转为 NaN。但是，`parseInt` 可以处理字符串截取和数字进制问题：
 
 ```JavaScript
 parseInt('32 abc') // 32
@@ -61,7 +61,7 @@ Number('0x11 abc') // NaN
 
 **参数为对象**
 
-小规则：几乎都转为 NaN，除非是包含单个数值的数组。
+当 `Number()` 的参数为对象时，基本都转换为 NaN，除了包含单个数值的数组。
 
 ```JavaScript
 Number({ a : 1 }) // NaN
@@ -135,9 +135,9 @@ console.log(Number(obj)); // NaN
 `toString` 方法，也就是 `Object.prototype` 上的 `toString` 方法。具体的过程如下面的代码所示：
 
 ```JavaScript
-Number({}) 
-// 可以拆解为
-Object.prototype.toString.call({}) //"[object Object]"
+// 拆解 Number({})
+
+Object.prototype.toString.call({}) // "[object Object]"
 Number("[object Object]") // NaN
 ```
 
@@ -156,8 +156,8 @@ console.log(Number(obj)) // 0
 在上面的代码中 `Number(obj)` 可等价于 `Number([])`，这里调用的是 `Array` 的 `toString` 方法，而不是 `Object` 的 `toString`。如下：
 
 ```JavaScript
-Number([])
-// 可以拆解为
+// 拆解 Number([])
+
 Array.prototype.toString.call([]) // ""
 Number('') // 0
 ```
@@ -169,7 +169,7 @@ Object.prototype.toString.call([]) //'[object Array]'
 Number('[object Array]') // NaN 
 ```
 
-可以得出下面的几点结论：
+`Number()` 的参数为对象类型时，可以得出下面的几点结论：
 
 1. 调用对象自身的 `valueOf` 方法。如果返回原始类型的值，则直接对该值使用 `Number` 函数，不再进行后续步骤。
 
@@ -177,7 +177,7 @@ Number('[object Array]') // NaN
 
 3. 如果 `toString` 方法返回的是对象，报错。
 
-Object.prototype.toString 返回值: 
+`Object.prototype.toString` 返回值: 
 
 ```JavaScript
   // 原始类型
@@ -212,15 +212,15 @@ Object.prototype.toString 返回值:
 
 **参数为原始类型**
 
+当 `String()` 的参数为原始数据类型时：
+
 - 数值：转为相应的字符串
-
 - 字符串：转换后还是原来的值
-
 - 布尔值：true 转为字符串 'true'，false 转为字符串 'false'
-
 - undefined：转为字符串 'undefined'
-
 - null：转为字符串 'null'
+  
+代码示例如下：
 
 ```JavaScript
 String(123) // "123"
@@ -231,6 +231,8 @@ String(null) // "null"
 ```
 
 **参数为对象**
+
+当 `String()` 的参数为对象类型时：
 
 ```JavaScript
 String({ a: 1 }) // "[object Object]"
@@ -249,7 +251,7 @@ const obj = {
 console.log(String(obj)) // 1
 ```
 
-`String` 方法的转换规则，与 `Number` 方法基本相同，只是互换了`valueOf` 方法和 `toString` 方法的执行顺序。
+`String()` 的参数类型为对象的转换规则，与 `Number()` 基本相同，只是互换了`valueOf` 方法和 `toString` 方法的执行顺序。
 
 1. 先调用对象自身的 `toString` 方法。如果返回原始类型的值，则对该值使用 `String` 函数，不再进行以下步骤。
 
