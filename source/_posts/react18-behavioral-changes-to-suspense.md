@@ -34,8 +34,8 @@ Legacy Suspense 和 Concurrent Suspense 两者的基本的用户体验是一致�
 ```
 
 两者的不同点主要体现在悬停组件 (suspended component) 对其同级组件渲染带来的影响：
-- Legacy Suspense 中，同级兄弟组件会立即从 DOM 上卸载（mounted），相关的 effects 和生命周期会被触发，最后会隐藏这个组件。具体可以查看[代码示例](https://codesandbox.io/s/keen-banach-nzut8?file=/src/App.js)。
-- Concurrent Suspense 中，同级兄弟组件并不会从 DOM 上卸载，相关的 effects 和生命周期会在 `ComponentThatSuspends` 处理完成时触发。具体可以查看[代码示例](https://codesandbox.io/s/romantic-architecture-ht3qi?file=/src/App.js)。
+- Legacy Suspense 中，同级兄弟组件会立即从 DOM 上挂载（mounted），相关的 effects 和生命周期会被触发，最后会隐藏这个组件。具体可以查看[代码示例](https://codesandbox.io/s/keen-banach-nzut8?file=/src/App.js)。
+- Concurrent Suspense 中，同级兄弟组件并不会从 DOM 上挂载，相关的 effects 和生命周期会在 `ComponentThatSuspends` 处理完成时触发。具体可以查看[代码示例](https://codesandbox.io/s/romantic-architecture-ht3qi?file=/src/App.js)。
 
 ### 详细解释
 
